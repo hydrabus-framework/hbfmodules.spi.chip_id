@@ -1,4 +1,5 @@
-# hbfmodules.skeleton
-Module base repository
+# hbfmodules.spi.chip_id
 
-Please read [CONTRIBUTING.md](https://github.com/hydrabus-framework/framework/blob/Architecture/CONTRIBUTING.md) to follow the contribution process.
+The aim of this module is to recover the SPI chip ID
+
+Inspired from Pedro Ribeiro's script [hydra_spi_dump](https://github.com/hydrabus/hydrafw/blob/master/contrib/hydra_spi_dump/hydra_spi_dump.py)

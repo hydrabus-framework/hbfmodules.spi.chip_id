@@ -2,10 +2,10 @@
 
 from setuptools import setup, find_packages
 
-__author__ = ""
+__author__ = "Jordan Ovrè <ghecko78@gmail.com>"
 
-description = ''
-name = 'hbfmodules.<category>.<module_name>'
+description = 'Hydrabus framework module to recover SPI chip ID'
+name = 'hbfmodules.spi.chip_id'
 setup(
     name=name,
     version='0.0.1',
@@ -20,5 +20,5 @@ setup(
         'Programming Language :: Python :: 3',
         'Development Status :: 3 - Alpha'
     ],
-    keywords=['hydrabus', 'framework', 'hardware', 'security']
+    keywords=['hydrabus', 'framework', 'hardware', 'security', 'spi', 'chip_id']
 )
