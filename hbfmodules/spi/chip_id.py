@@ -23,12 +23,12 @@ class ClassName(AModule):
              "Description": "Hydrabus device", "Default": self.config["HYDRABUS"]["port"]},
             {"Name": "timeout", "Value": "", "Required": True, "Type": "int",
              "Description": "Hydrabus read timeout", "Default": self.config["HYDRABUS"]["read_timeout"]},
-            {"Name": "spi_device", "Value": "", "Required": True, "Type": "string",
-             "Description": "The hydrabus SPI device (SPI1 or SPI2)", "Default": "SPI1"},
-            {"Name": "spi_polarity", "Value": "", "Required": True, "Type": "string",
-             "Description": "set SPI polarity (high or low)", "Default": "low"},
-            {"Name": "spi_phase", "Value": "", "Required": True, "Type": "string",
-             "Description": "set SPI phase (high or low)", "Default": "low"}
+            {"Name": "spi_device", "Value": "", "Required": True, "Type": "int",
+             "Description": "The hydrabus SPI device (1=SPI1 or 0=SPI2)", "Default": 1},
+            {"Name": "spi_polarity", "Value": "", "Required": True, "Type": "int",
+             "Description": "set SPI polarity (1=high or 0=low)", "Default": 0},
+            {"Name": "spi_phase", "Value": "", "Required": True, "Type": "int",
+             "Description": "set SPI phase (1=high or 0=low)", "Default": 0}
         ]
 
     def init_hydrabus(self):
@@ -41,9 +41,9 @@ class ClassName(AModule):
             timeout = int(self.get_option_value("timeout"))
             self.hb_serial = SPI(device)
             self.hb_serial.timeout = timeout
+            self.hb_serial.device = self.get_option_value("spi_device")
             self.hb_serial.polarity = self.get_option_value("spi_polarity")
             self.hb_serial.phase = self.get_option_value("spi_phase")
-            self.hb_serial.device = self.get_option_value("spi_device")
             return True
         except serial.SerialException as err:
             self.logger.handle("{}".format(err), self.logger.ERROR)
