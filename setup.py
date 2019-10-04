@@ -8,7 +8,7 @@ description = 'Hydrabus framework module to recover SPI chip ID'
 name = 'hbfmodules.spi.chip_id'
 setup(
     name=name,
-    version='0.0.1',
+    version='0.0.2',
     packages=find_packages(),
     license='GPLv3',
     description=description,
